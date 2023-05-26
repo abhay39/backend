@@ -31,13 +31,13 @@ const connect=async()=>{
     }
 }
 
-app.get("/",(req,res)=>{
+app.get("/fg",(req,res)=>{
   res.send("Welcome to Expense Tracker")
 })
 app.post("/create",async(req,res)=>{
-    const {name,image,mobile,occupation,password,email}=req.body
+    const {name,mobile,occupation,password,email}=req.body
     const hashedPassword = await bcrypt.hash(password,10);
-    const newUser = new User({name,email,password:hashedPassword,image,mobile,occupation})
+    const newUser = new User({name,email,password:hashedPassword,mobile,occupation})
 
     try{
         const savedUser = await newUser.save()
@@ -70,7 +70,7 @@ app.post("/login", async (req, res) => {
   
 
 
-app.post("/cccc",async(req,res,next)=>{
+app.post("/",async(req,res,next)=>{
   const data=req.body;
   const token = data.token;
   if(!token){
@@ -85,6 +85,7 @@ app.post("/cccc",async(req,res,next)=>{
     return res.json("User not found");
   }
   res.json(user);
+  // console.log(user)
 })
 
 app.post("/addIncome",async(req,res)=>{
