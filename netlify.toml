@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build" # The command to build your backend
+  functions = "functions" # The directory where your serverless functions are located
+
+[build.environment]
+  NODE_VERSION = "14" # The Node.js version to use
+
+[build.publish]
+  command = "npm run publish" # The command to publish your backend (optional)
+  directory = "public" # The directory to deploy (optional)
