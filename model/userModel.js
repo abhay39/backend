@@ -24,10 +24,6 @@ const userModel=new mongoose.Schema({
         required:true,
         unique:true
     },
-    image:{
-        type:String,
-        required:true,  
-    }
 },{timestamps:true})
 
 export default mongoose.model('User',userModel)
